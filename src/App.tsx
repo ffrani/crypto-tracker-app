@@ -72,6 +72,41 @@ const App: React.FC = () => {
         <h3>Price Change</h3>
         <h3>Marketcap</h3>
       </div>
+      {isFetched ? (
+        filteredCoins.map((coin) => {
+          return (
+            <div className="coin-container" key={coin.id}>
+              <div className="coin-row">
+                <div className="coin">
+                  <img src={coin.image} alt="crypto" />
+                  <h1>{coin.name}</h1>
+                  <p className="coin-symbol">{coin.symbol}</p>
+                </div>
+                <div className="coin-data">
+                  <p className="coin-price">${coin.currentPrice}</p>
+                  <p className="coin-volume">
+                    ${coin.totalVolume?.toLocaleString()}
+                  </p>
+                  {coin.priceChangePercentage24H < 0 ? (
+                    <p className="coin-percentage red">
+                      {coin.priceChangePercentage24H?.toFixed(2)}%
+                    </p>
+                  ) : (
+                    <p className="coin-percentage green">
+                      {coin.priceChangePercentage24H?.toFixed(2)}%
+                    </p>
+                  )}
+                  <p className="coin-marketcap">
+                    Mkt Cap: ${coin.marketCap?.toLocaleString()}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      ) : (
+        <div style={{ marginTop: '30px' }}>Loading...</div>
+      )}
     </div>
   );
 };
