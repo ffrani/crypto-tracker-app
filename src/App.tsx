@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import './App.css';
+
 interface CoinType {
   currentPrice: number;
   id: string;
