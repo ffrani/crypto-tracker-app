@@ -51,7 +51,29 @@ const filteredCoins = coins.filter((coin) =>
 );
 
 const App: React.FC = () => {
-  return <div className="App">Hello World!</div>;
+  return (
+    <div className="coin-app">
+      <div className="coin-search">
+        <h1 className="coin-text">Search a currency</h1>
+        <form>
+          <input
+            type="text"
+            placeholder="Search"
+            className="coin-input"
+            onChange={handleChange}
+          />
+        </form>
+      </div>
+      <div className="coin-des">
+        <h3>Name</h3>
+        <h3>Symbol</h3>
+        <h3>Price</h3>
+        <h3>Volume</h3>
+        <h3>Price Change</h3>
+        <h3>Marketcap</h3>
+      </div>
+    </div>
+  );
 };
 
 export default App;
